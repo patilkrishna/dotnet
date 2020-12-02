@@ -1,0 +1,116 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EmployeeApp
+{
+
+    class Employee
+    {
+        private int empId;
+        private string empName;
+        private decimal basic;
+        private short deptNo;
+
+        public int EmpId
+        {
+            get { return empId++; }
+            set { empId = value; }
+        }
+
+         public string EmpName
+        {
+            get { return empName; }
+            set { empName = value; }
+        }
+
+        public decimal Basic
+        {
+            get 
+            { 
+                return basic;
+            }
+
+            set 
+            { 
+                if (value < 6000 || value > 50000)
+
+                    Console.WriteLine(  "basic = "+ basic);
+
+                 else 
+                    Console.WriteLine("basic invalid");
+            }
+        }
+
+       public short DeptNo
+        {
+            get
+            {
+                return deptNo;
+            }
+            set
+            {
+                if(value>0)
+                    Console.WriteLine(deptNo);
+                else
+                    Console.WriteLine("invalid deptNo");
+            }
+        }
+
+        public Employee( string empName , decimal basic , short deptNo)
+        {
+            this.empName = empName;
+            this.basic = basic;
+            this.deptNo = deptNo;
+        }
+        public Employee(string empName, decimal basic)
+        {
+            this.empName = empName;
+            this.basic = basic;
+            
+        }
+
+        public Employee(string empName)
+        {
+            this.empName = empName;
+
+           
+        }
+        public Employee()
+        {
+            Console.WriteLine(" no parameter constructor called ");
+        }
+
+       public   decimal GetNetSalary()
+        {
+            return basic + 10000;
+        }
+
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Employee o1 = new Employee("Amol", 123465, 10);
+            Employee o2 = new Employee("Amol", 123465);
+            Employee o3 = new Employee("Amol");
+            Employee o4 = new Employee();
+
+            o1.EmpId = 0;
+
+
+            Console.WriteLine(o1.EmpId);
+            Console.WriteLine(o2.EmpId);
+            Console.WriteLine(o3.EmpId);
+
+            Console.WriteLine(o3.EmpId);
+            Console.WriteLine(o2.EmpId);
+            Console.WriteLine(o1.EmpId);
+
+        }
+    }
+}
